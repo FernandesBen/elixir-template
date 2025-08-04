@@ -1,0 +1,18 @@
+{
+  "name": "elixir_template",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && pnpm run dev",
+    "dev:backend": "cd backend && mix phx.server",
+    "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
+    "test:frontend": "cd frontend && pnpm run test",
+    "test:backend": "cd backend && mix test",
+    "test": "pnpm run test:backend && pnpm run test:frontend",
+    "build:frontend": "cd frontend && pnpm run build",
+    "build:backend": "cd backend && MIX_ENV=prod mix release",
+    "build": "pnpm run build:backend && pnpm run build:frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

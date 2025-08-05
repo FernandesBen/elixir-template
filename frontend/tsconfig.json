@@ -1,7 +1,28 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "target": "esnext", // Output uses latest JS (no transpile to ES5)
+    "module": "esnext", // Keep modern module format (import/export)
+    "moduleResolution": "node", // For tools like Vite, ESBuild, Bun
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "strict": true, // Enables all strict checks
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "isolatedModules": true, // Required by Vite + ESBuild
+    "esModuleInterop": true, // Allows default import syntax from Commonjs modules
+    "forceConsistentCasingInFileNames": true, //Prevents accidentally importing with different casing
+    "skipLibCheck": true, // Skip type checking node_modules (speeds up build)
+    "baseUrl": ".",
+    "paths": {
+      "@/": ["src/*"],
+    },
+    "types": ["vitest/globals"],
+  },
+  "include": [
+    "vitest.config.ts",
+    "vite.config.ts",
+    "src",
   ]
 }

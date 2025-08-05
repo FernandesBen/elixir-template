@@ -1,18 +1,32 @@
+
 {
   "name": "elixir_template",
   "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev:frontend": "cd frontend && pnpm run dev",
-    "dev:backend": "cd backend && mix phx.server",
-    "dev": "concurrently \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
-    "test:frontend": "cd frontend && pnpm run test",
-    "test:backend": "cd backend && mix test",
-    "test": "pnpm run test:backend && pnpm run test:frontend",
-    "build:frontend": "cd frontend && pnpm run build",
-    "build:backend": "cd backend && MIX_ENV=prod mix release",
-    "build": "pnpm run build:backend && pnpm run build:frontend"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+    "dev": "pnpm run --recursive --parallel --aggregate-output dev",
+    "dev:frontend": "pnpm run --filter frontend dev",
+    "dev:backend": "pnpm run --filter backend dev",
+    
+    "build": "pnpm run --recursive --aggregate-output build",
+    "build:frontend": "pnpm run --filter frontend build",
+    "build:backend": "pnpm run --filter backend build",
+    
+    "test": "pnpm run --recursive --aggregate-output test",
+    "test:frontend": "pnpm run --filter frontend test",
+    "test:backend": "pnpm run --filter backend test",
+    
+    "lint": "pnpm run --recursive --parallel --aggregate-output lint",
+    "lint:frontend": "pnpm run --filter frontend lint",
+    "lint:backend": "pnpm run --filter backend lint",
+    
+    "format": "pnpm run --recursive --parallel --aggregate-output format",
+    "format:frontend": "pnpm run --filter frontend format",
+    "format:backend": "pnpm run --filter backend format",
+    
+    "clean": "pnpm run --recursive --parallel clean"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "name": "backend",
+  "private": true,
+  "scripts": {
+    "dev": "mix phx.server",
+    "build": "MIX_ENV=prod mix release",
+    "test": "mix test",
+    "lint": "mix credo --strict",
+    "format": "mix format",
+    "clean": "mix clean && rm -rf _build deps"
+  }
+}

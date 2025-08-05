@@ -2,13 +2,10 @@ import Config
 
 # Configure your database
 config :backend, Backend.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "backend_dev",
+  database: "dev.sqlite3",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: 5
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
